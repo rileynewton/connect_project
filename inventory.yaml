@@ -1,9 +1,17 @@
 targets:
-  - jumpy-dominion.delivery.puppetlabs.net
-  - toughest-wallop.delivery.puppetlabs.net
-config:
-  ssh:
-    user: root
-    password:
-      _plugin: puppet_connect_data
-      key: qe_pass
+
+  - uri: toughest-wallop.delivery.puppetlabs.net
+    config:
+      ssh:
+        user: root
+        password:
+          _plugin: puppet_connect_data
+          key: qe_pass
+  - uri: jumpy-dominion.delivery.puppetlabs.net
+    config:
+      transport: winrm
+      winrm:
+        user: Administrator
+        password:
+          _plugin: puppet_connect_data
+          key: qe_pass
