@@ -1,1 +1,3 @@
 name: connect_project
+modules:
+  - name: puppetlabs-service
