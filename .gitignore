@@ -1,3 +1,6 @@
 secrets.yaml
 .rerun.json
 bolt-debug.log
+.modules/*
+.plan_cache.json
+.resource_types/*
