@@ -1,13 +1,13 @@
 targets:
 
-  - uri: viable-juju.delivery.puppetlabs.net
+  - uri: net-matron.delivery.puppetlabs.net
     config:
       ssh:
         user: root
         password:
           _plugin: puppet_connect_data
           key: qe_pass
-  - uri: lean-soubriquet.delivery.puppetlabs.net
+  - uri: seasonal-curd.delivery.puppetlabs.net
     config:
       transport: winrm
       winrm:
