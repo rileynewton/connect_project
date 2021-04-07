@@ -1,8 +1,28 @@
-targets:
-  - uri: redder-illusion.delivery.puppetlabs.net
+groups:
+  - name: aws
+    targets:
+      - _plugin: aws_inventory
+        region: us-west-2
+        aws_access_key_id:
+          _plugin: puppet_connect_data
+          key: aws_access_key_id
+        aws_secret_access_key:
+          _plugin: puppet_connect_data
+          key: aws_secret_access_key
+        target_mapping:
+          name: public_dns_name
+          uri: public_ip_address
+          config:
+            ssh:
+              host: public_dns_name
     config:
       ssh:
-        user: root
-        password:
+        private-key:
+          key-data: 
+            _plugin: puppet_connect_data
+            key: ssh_key
+        user: 
           _plugin: puppet_connect_data
-          key: qe_pass
+          key: username
+        run-as: root
+        host-key-check: false
