@@ -1,28 +1,45 @@
-groups:
-  - name: aws
-    targets:
-      - _plugin: aws_inventory
-        region: us-west-2
-        aws_access_key_id:
-          _plugin: puppet_connect_data
-          key: aws_access_key_id
-        aws_secret_access_key:
-          _plugin: puppet_connect_data
-          key: aws_secret_access_key
-        target_mapping:
-          name: public_dns_name
-          uri: public_ip_address
-          config:
-            ssh:
-              host: public_dns_name
+# groups:
+#   - name: aws
+#     targets:
+#       - _plugin: aws_inventory
+#         region: us-west-2
+#         aws_access_key_id:
+#           _plugin: puppet_connect_data
+#           key: aws_access_key_id
+#         aws_secret_access_key:
+#           _plugin: puppet_connect_data
+#           key: aws_secret_access_key
+#         target_mapping:
+#           name: public_dns_name
+#           uri: public_ip_address
+#           config:
+#             ssh:
+#               host: public_dns_name
+#     config:
+#       ssh:
+#         private-key:
+#           key-data: 
+#             _plugin: puppet_connect_data
+#             key: ssh_key
+#         user: 
+#           _plugin: puppet_connect_data
+#           key: username
+#         run-as: root
+#         host-key-check: false
+
+targets:
+  - uri: oval-inhibition.delivery.puppetlabs.net
+    plugin_hooks:
+      puppet_library:
+        plugin: task 
+        task: package
+        parameters:
+          name: puppet-agent
+          action: status
     config:
+      transport: ssh
       ssh:
-        private-key:
-          key-data: 
-            _plugin: puppet_connect_data
-            key: ssh_key
-        user: 
+        user: root
+        password:
           _plugin: puppet_connect_data
-          key: username
-        run-as: root
-        host-key-check: false
+          key: password
