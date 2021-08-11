@@ -27,19 +27,31 @@
 #         run-as: root
 #         host-key-check: false
 
+# targets:
+#   - uri: oval-inhibition.delivery.puppetlabs.net
+#     plugin_hooks:
+#       puppet_library:
+#         plugin: task 
+#         task: package
+#         parameters:
+#           name: puppet-agent
+#           action: status
+#     config:
+#       transport: ssh
+#       ssh:
+#         user: root
+#         password:
+#           _plugin: puppet_connect_data
+#           key: password
+
 targets:
-  - uri: oval-inhibition.delivery.puppetlabs.net
-    plugin_hooks:
-      puppet_library:
-        plugin: task 
-        task: package
-        parameters:
-          name: puppet-agent
-          action: status
-    config:
-      transport: ssh
-      ssh:
-        user: root
-        password:
-          _plugin: puppet_connect_data
-          key: password
+  - nice-stagecoach.delivery.puppetlabs.net
+  - sensory-clown.delivery.puppetlabs.net
+
+config:
+  transport: ssh
+  ssh:
+    user: root
+    password:
+      _plugin: puppet_connect_data
+      key: password
