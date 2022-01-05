@@ -45,8 +45,8 @@
 #           key: password
 
 targets:
-  - nice-stagecoach.delivery.puppetlabs.net
-  - sensory-clown.delivery.puppetlabs.net
+  - lexical-let.delivery.puppetlabs.net
+  - dang-smalltime.delivery.puppetlabs.net
 
 config:
   transport: ssh
