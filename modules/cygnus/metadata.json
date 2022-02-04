@@ -1,0 +1,9 @@
+{
+  "name": "puppetlabs-cygnus",
+  "version": "0.1.0",
+  "author": "Puppet, Inc.",
+  "summary": "Helper content for Cygnus prototype",
+  "license": "Apache-2.0",
+  "source": "https://github.com/puppetlabs/pe-tasks-vanagon/tree/main/resources/modules/cygnus",
+  "dependencies": []
+}
