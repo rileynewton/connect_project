@@ -44,14 +44,24 @@
 #           _plugin: puppet_connect_data
 #           key: password
 
-targets:
-  - lexical-let.delivery.puppetlabs.net
-  - dang-smalltime.delivery.puppetlabs.net
+# targets:
+#   - ssh-0.ssh.default.svc.cluster.local
+
+# config:
+#   transport: ssh
+#   ssh:
+#     user: root
+#     password:
+#       _plugin: puppet_connect_data
+#       key: password
 
 config:
   transport: ssh
   ssh:
     user: root
-    password:
+    private-key:
       _plugin: puppet_connect_data
-      key: password
+      key: ssh_target_private_key
+targets:
+  - name: ssh_target_1
+    uri: ssh-0.ssh.default.svc.cluster.local # This URI needs to be replaced with a real target
